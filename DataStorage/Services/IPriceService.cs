@@ -1,6 +1,7 @@
 ﻿using DataStorage.Database.DbServices;
 using DataStorage.Database.Entity;
 using DataStorage.Models;
+using DataStorage.Models.DTO;
 
 namespace DataStorage.Services
 {
@@ -8,6 +9,6 @@ namespace DataStorage.Services
     {
         public IDataManager dataManager { get; }       
         
-        Task<PriceDifference> SavePriceDifferenceAsync(PriceDifInput data);        
+        Task<PriceDifferenceDTO> SavePriceDifferenceAsync(PriceDifInput data);        
     }
 }

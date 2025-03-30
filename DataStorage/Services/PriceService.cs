@@ -17,22 +17,22 @@ namespace DataStorage.Services
             _logger = logger;
         }
 
-        public async Task<PriceDifference> SavePriceDifferenceAsync(PriceDifInput data)
+        public async Task<PriceDifferenceDTO> SavePriceDifferenceAsync(PriceDifInput data)
         {
             _logger.LogInformation($"Starting saving price difference for symbol: {data.Symbol}");
             if (string.IsNullOrWhiteSpace(data.Symbol))
             {
                 throw new ArgumentNullException(nameof(data.Symbol));
             }
-            var entity = new PriceDifferenceDTO()
+            var dto = new PriceDifferenceDTO()
             { 
                 Symbol = data.Symbol, 
                 Timestamp = DateTime.UtcNow, 
                 Difference = data.PriceDif
             };
-            _logger.LogInformation($"Saving price difference for symbol = {entity.Symbol} with difference = {entity.Difference}");
-            await dataManager.PriceDifferences.CreateAsync(entity);
-            return entity;
+            _logger.LogInformation($"Saving price difference for symbol = {dto.Symbol} with difference = {dto.Difference}");
+            await dataManager.PriceDifferences.CreateAsync(dto);
+            return dto;
         }
     }
 }
