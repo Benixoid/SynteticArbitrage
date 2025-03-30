@@ -1,0 +1,31 @@
+﻿services:
+  postgres:
+    image: postgres:latest
+    container_name: syntArb-postgres
+    environment:
+      - POSTGRES_USER=dbowner
+      - POSTGRES_PASSWORD=owner
+      - POSTGRES_DB=SyntArb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/eQueue/data
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: syntArb-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  pgadmin_data:
