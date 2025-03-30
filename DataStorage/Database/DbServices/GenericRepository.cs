@@ -47,10 +47,10 @@ namespace DataStorage.Database.DbServices
             return _mapper.Map<IEnumerable<TEntityDTO>>(entities);            
         }
 
-        public virtual async Task<IEnumerable<TEntityDTO>> GetAllPaginatedAsync(int pageNum = 1, int pageSize = 20)
+        public virtual async Task<IEnumerable<TEntityDTO>> GetPaginatedAsync(int pageNum = 1, int pageSize = 20)
         {
             var entities = await _dbSet.Skip((pageNum - 1) * pageSize).Take(pageSize).ToListAsync();
-            return _mapper.Map<IEnumerable<TEntityDTO>>(entities);            
+            return _mapper.Map<IEnumerable<TEntityDTO>>(entities);
         }
 
         public virtual async Task<TEntityDTO?> GetByIdAsync(int id)

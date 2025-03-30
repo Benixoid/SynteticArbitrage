@@ -35,7 +35,7 @@ namespace DataStorage.Controllers
         {
             try
             {
-                data.Symbol = null;
+                //data.Symbol = null;
                 var createdEntity = await _priceService.SavePriceDifferenceAsync(data);
                 return Ok(createdEntity);
             }

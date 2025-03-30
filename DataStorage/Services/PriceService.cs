@@ -31,8 +31,8 @@ namespace DataStorage.Services
                 Difference = data.PriceDif
             };
             _logger.LogInformation($"Saving price difference for symbol = {dto.Symbol} with difference = {dto.Difference}");
-            await dataManager.PriceDifferences.CreateAsync(dto);
-            return dto;
+            var createdDTO = await dataManager.PriceDifferences.CreateAsync(dto);
+            return createdDTO;
         }
     }
 }

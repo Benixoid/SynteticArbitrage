@@ -11,7 +11,7 @@ namespace DataStorage.Database.DbServices
         Task<TEntityDTO> UpdateAsync(TEntityDTO dto);
         Task DeleteAsync(int id);
         Task<IEnumerable<TEntityDTO>> GetAllAsync();
-        Task<IEnumerable<TEntityDTO>> GetAllPaginatedAsync(int pageNum = 1, int pageSize = 20);
+        Task<IEnumerable<TEntityDTO>> GetPaginatedAsync(int pageNum = 1, int pageSize = 20);
         Task<TEntityDTO?> GetByIdAsync(int id);
     }
 }

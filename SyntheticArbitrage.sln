@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceDataFetcher", "PriceDataFetcher\PriceDataFetcher.csproj", "{FA2AB21D-B31B-4317-84A0-216B5285DCBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{7B4FBCE8-BD67-45EB-9D78-2336664044B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageTests", "DataStorageTests\DataStorageTests.csproj", "{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7B4FBCE8-BD67-45EB-9D78-2336664044B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B4FBCE8-BD67-45EB-9D78-2336664044B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B4FBCE8-BD67-45EB-9D78-2336664044B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
