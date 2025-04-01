@@ -1,4 +1,5 @@
 using Asp.Versioning;
+using PriceDataFetcher.Service;
 
 namespace PriceDataFetcher
 {
@@ -36,7 +37,10 @@ namespace PriceDataFetcher
                options.SubstituteApiVersionInUrl = true;
            });
             // Add services to the container.
-
+            builder.Services.AddScoped<ISymbolInfoReader, BinanceSymbolInfoReader>();
+            builder.Services.AddScoped<IBTCSymbolReader, BTCSymbolReader>();
+            builder.Services.AddScoped<IApiReader, ApiReader>();
+            builder.Services.AddScoped<IPriceReader, BinancePriceReader>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

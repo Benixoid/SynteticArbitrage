@@ -1,6 +1,0 @@
-@PriceDataFetcher_HostAddress = http://localhost:5170
-
-GET {{PriceDataFetcher_HostAddress}}/api/v1/PriceReader/USD1
-Accept: application/json
-
-###

@@ -3,6 +3,6 @@
     public class BaseDTO
     {
         public int Id { get; set; }
-        public required DateTime Timestamp { get; set; }
+        public DateTime Timestamp { get; set; }
     }
 }

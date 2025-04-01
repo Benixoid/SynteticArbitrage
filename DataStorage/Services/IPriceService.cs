@@ -9,6 +9,7 @@ namespace DataStorage.Services
     {
         public IDataManager dataManager { get; }       
         
-        Task<PriceDifferenceDTO> SavePriceDifferenceAsync(PriceDifInput data);        
+        Task<PriceDifferenceDTO> SavePriceDifferenceAsync(PriceDifInput data);
+        Task<PriceDTO> SavePriceAsync(PriceInput data);
     }
 }

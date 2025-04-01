@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace DataStorageTests
+namespace DataStorageTests.Services
 {
     [TestFixture]
     public class PriceServiceTest
@@ -29,7 +29,7 @@ namespace DataStorageTests
             // Arrange
             var input = new PriceDifInput
             {
-                Symbol = "AAPL",
+                Symbol = "FakeSymbol",
                 PriceDif = 1.23M
             };
             var expectedDto = new PriceDifferenceDTO

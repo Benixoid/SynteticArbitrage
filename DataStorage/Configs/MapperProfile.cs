@@ -9,6 +9,7 @@ namespace DataStorage.Configs
         public MapperProfile()
         {
             CreateMap<PriceDifference, PriceDifferenceDTO>().ReverseMap();
+            CreateMap<Price, PriceDTO>().ReverseMap();
         }
     }
 }

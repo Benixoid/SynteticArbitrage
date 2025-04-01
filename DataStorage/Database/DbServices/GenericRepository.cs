@@ -23,7 +23,8 @@ namespace DataStorage.Database.DbServices
             _mapper = mapper;
         }
         public virtual async Task<TEntityDTO> CreateAsync(TEntityDTO createDto)
-        {            
+        {
+            createDto.Timestamp = DateTime.UtcNow;
             var entity = _mapper.Map<TEntity>(createDto);
             _logger.LogInformation($"Saving new entity of type: {entity.GetType().Name}");
             await _dbSet.AddAsync(entity);

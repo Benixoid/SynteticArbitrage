@@ -55,6 +55,14 @@ namespace DataStorage
                });
 
                 // Add services to the container.
+                //Add required services to DI
+                builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+                builder.Services.AddScoped<IDataManager, DataManager>();
+                builder.Services.AddScoped<IPriceDifferencesRepository, PriceDifferenceRepository>();
+                builder.Services.AddScoped<IPriceRepository, PriceRepository>();
+                builder.Services.AddScoped<IPriceService, PriceService>();
+                builder.Services.AddSingleton(Log.Logger);
+
                 builder.Services.AddControllers().AddJsonOptions(options => {
                     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                 });
@@ -68,16 +76,17 @@ namespace DataStorage
                 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MapperProfile>());
 
                 //DB settings
+                var password = builder.Configuration.GetConnectionString("EncryptedDBPassword");                
+                if (string.IsNullOrEmpty(password))
+                {
+                    Log.Fatal("Encrypted DB password is not set in the configuration file");
+                    return;
+                }                
+                var decryptedPassword = MyEncryption.DecryptString(password);
                 builder.Services.AddDbContext<AppDbContext>(opts =>
-                    opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
-                    /*.EnableSensitiveDataLogging().LogTo(Console.WriteLine, LogLevel.Information)*/);
+                    opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") + ";Password=" + decryptedPassword));
 
-                //Add required services to DI
-                builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
-                builder.Services.AddScoped<IDataManager, DataManager>();
-                builder.Services.AddScoped<IPriceDifferencesRepository, PriceDifferenceRepository>();
-                builder.Services.AddScoped<IPriceService, PriceService>();
-                builder.Services.AddSingleton(Log.Logger);
+                
 
 
                 var app = builder.Build();
@@ -102,7 +111,7 @@ namespace DataStorage
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Application start-up failed");                
+                Log.Fatal(ex, "Application start-up failed");
             }
             finally
             {

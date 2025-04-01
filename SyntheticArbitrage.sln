@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageTests", "DataStorageTests\DataStorageTests.csproj", "{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryToRead", "TryToRead\TryToRead.csproj", "{271FCACB-4B15-4055-87C7-2CB774796D0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModels\SharedModels.csproj", "{8017BF6A-C1D3-44AE-9EDE-6D9821C1A44A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F1F2DDD-EFA0-49F8-918E-B646B65A2F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{271FCACB-4B15-4055-87C7-2CB774796D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{271FCACB-4B15-4055-87C7-2CB774796D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{271FCACB-4B15-4055-87C7-2CB774796D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{271FCACB-4B15-4055-87C7-2CB774796D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8017BF6A-C1D3-44AE-9EDE-6D9821C1A44A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8017BF6A-C1D3-44AE-9EDE-6D9821C1A44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8017BF6A-C1D3-44AE-9EDE-6D9821C1A44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8017BF6A-C1D3-44AE-9EDE-6D9821C1A44A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
