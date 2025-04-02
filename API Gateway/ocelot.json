@@ -37,7 +37,10 @@
           "Host": "localhost",
           "Port": 7257
         }
-      ]
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
     },
     {
       "UpstreamPathTemplate": "/gateway/info/btcusdt_bi_quarter_symbol",
@@ -49,7 +52,10 @@
           "Host": "localhost",
           "Port": 7257
         }
-      ]
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
     },
     {
       "UpstreamPathTemplate": "/gateway/Last10Prices/{params}",

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components.Routing;
+using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using System.Threading.Tasks;
@@ -10,11 +11,16 @@ namespace API_Gateway
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-            builder.Services.AddOcelot(builder.Configuration);
+            builder.Services
+                .AddOcelot(builder.Configuration)
+                .AddCacheManager(c =>
+                {
+                    c.WithDictionaryHandle();
+                });
 
             var app = builder.Build();
             
-            app.MapGet("/", () => "Hello World!");
+            //app.MapGet("/", () => "Hello World!");
             await app.UseOcelot();
             app.Run();
         }
