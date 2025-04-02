@@ -41,9 +41,13 @@ namespace TryToRead
         {
             string? symbol_biquarter;
 
-            string url_biquarter = "https://localhost:7257/api/v1/Info/btcusdt_bi_quarter_symbol";
+            //string url_biquarter = "https://localhost:7257/api/v1/Info/btcusdt_bi_quarter_symbol";
+            string url_biquarter = "https://localhost:5001/gateway/Info/btcusdt_bi_quarter_symbol";
 
-            string baseurl_data = "https://localhost:7257/api/v1/last10prices/";
+            //string baseurl_data = "https://localhost:7257/api/v1/last10prices/";
+            string baseurl_data = "https://localhost:5001/gateway/last10prices/";
+
+            
             symbol_biquarter = await GetSymbol(url_biquarter, "BiQuarter");
             if (symbol_biquarter is null)
                 return;
@@ -65,8 +69,11 @@ namespace TryToRead
         private static async Task ReadLast10QuarterValuesFromBinanceAndWriteToDB()
         {
             string? symbol_quarter;            
-            string url_quarter = "https://localhost:7257/api/v1/Info/btcusdt_quarter_symbol";            
-            string baseurl_data = "https://localhost:7257/api/v1/last10prices/";
+            //string url_quarter = "https://localhost:7257/api/v1/Info/btcusdt_quarter_symbol";            
+            //string baseurl_data = "https://localhost:7257/api/v1/last10prices/";
+            
+            string url_quarter = "https://localhost:5001/gateway/Info/btcusdt_quarter_symbol";
+            string baseurl_data = "https://localhost:5001/gateway/last10prices/";
             symbol_quarter = await GetSymbol(url_quarter, "Quarter");
             if (symbol_quarter is null)                            
                 return;           
@@ -90,7 +97,8 @@ namespace TryToRead
             Console.Write("Saving price to DB. " + item + "...");
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:7084/");
+                //client.BaseAddress = new Uri("https://localhost:7084/");
+                client.BaseAddress = new Uri("https://localhost:5001/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var data = new { CurrentPrice = item.ClosePrice, Symbol = symbol, PriceDate = item.CloseTime };
@@ -98,7 +106,7 @@ namespace TryToRead
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
                 try
                 {                    
-                    HttpResponseMessage response = await client.PostAsync("api/v1/Price", content);
+                    HttpResponseMessage response = await client.PostAsync("gateway/Price", content);
                     
                     if (response.IsSuccessStatusCode)
                     {

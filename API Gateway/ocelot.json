@@ -1,0 +1,68 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl":  "https://localhost:5001"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/price",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/v1/price",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7084
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/PriceDifference",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/v1/PriceDifference",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7084
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/info/btcusdt_quarter_symbol",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/info/btcusdt_quarter_symbol",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7257
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/info/btcusdt_bi_quarter_symbol",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/info/btcusdt_bi_quarter_symbol",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7257
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Last10Prices/{params}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/Last10Prices/{params}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7257
+        }
+      ]
+    }
+  ]
+
+}
